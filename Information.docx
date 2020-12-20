@@ -3,4 +3,34 @@
 A] Important Terms :
 
 	1. Host :- The CPU and its memory (host memory).
+
 	2. Device :- The GPU and its memory (Device memory).
+
+	3. Simple Processing Flow of Cuda :
+		a) Copy input from CPU memory to GPU memory.
+		b) Load GPU Code and Execute it, caching data on chip for performance.
+		c) Copy Results from GPU to CPU memory.
+
+	4. Cuda functions for handling device memory:
+		a) cudaMalloc()- Allocates size bytes of linear memory on the device and returns in *devptr a pointer to the 
+	allocated memory. The memory is not cleared. cudaMalloc() returns cudaErrorMemoryAllocation in case of failure.
+	Syntax:
+		cudaError_t cudaMalloc(void** devptr, size_t size)
+	here,
+		devptr - Ptr to allocated device memory.
+		size - Requested allocation size in bytes.
+	Returns:
+		cudaSuccess, CudaErrorMemoryAllocation
+
+		b) cudaFree()- Frees memory of devPtr, which is created by cudaMalloc() or cudaMallocPitch(). If cudaFree()
+	has already been called, an error is returned. If devPtr is 0, no operation is performed. cudaFree() returns 
+	cudaErrorInvalidDevicePointer in case of failure.
+	Syntax:
+		cudaError_t cudaFree(void* devPtr)
+	here,
+		devPtr - Device ptr to memory to free.
+	Returns:
+		cudaSuccess, cudaErrorInvalidDevicePointer, cudaErrorInitializationError.
+		c) cudaMemcpy()-
+			i) cudaMemcpyDevicetoHost():
+			ii) cudaMemcpyHosttoDevice():
