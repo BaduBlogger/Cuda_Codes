@@ -31,6 +31,8 @@ A] Important Terms :
 		devPtr - Device ptr to memory to free.
 	Returns:
 		cudaSuccess, cudaErrorInvalidDevicePointer, cudaErrorInitializationError.
-		c) cudaMemcpy()-
-			i) cudaMemcpyDevicetoHost():
-			ii) cudaMemcpyHosttoDevice():
+		c) CUDA Memory copy Types: enum cudaMemcpyKind
+			i) cudaMemcpyHostToHost()-	Host-->Host
+			ii) cudaMemcpyHostToDevice()-	Host-->Device
+			iii) cudaMemcpyDeviceToHost()-	Device-->Host
+			iv) cudaMemcpyDeviceToDevice()-	Device-->Device
