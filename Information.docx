@@ -1,0 +1,6 @@
+---* Data for CUDA Programming *---
+
+A] Important Terms :
+
+	1. Host :- The CPU and its memory (host memory).
+	2. Device :- The GPU and its memory (Device memory).
